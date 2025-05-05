@@ -86,6 +86,11 @@ jobs:
           echo "CONFIG_PACKAGE_kmod-crypto-lib-chacha20=m" >> .config
           echo "CONFIG_PACKAGE_kmod-crypto-lib-chacha20poly1305=m" >> .config
           echo "CONFIG_PACKAGE_kmod-crypto-chacha20poly1305=m" >> .config
+          echo "CONFIG_TARGET_mediatek_filogic_DEVICE_bananapi_bpi-r3=y" >> .config
+          echo "CONFIG_TARGET_mediatek_filogic_DEVICE_bananapi_bpi-r3-mini=y" >> .config
+          echo "CONFIG_TARGET_mediatek_filogic_DEVICE_bananapi_bpi-r4=y" >> .config
+          echo "CONFIG_TARGET_PROFILE=DEVICE_bananapi_bpi-r4" >> .config
+        
 
           make defconfig
 
