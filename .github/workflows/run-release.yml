@@ -50,7 +50,7 @@ jobs:
           \`\`\`"
 
           curl -X POST https://api.github.com/repos/Slava-Shchipunov/awg-openwrt/releases \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Authorization: token ${{ secrets.TOKEN }}" \
             -H "Content-Type: application/json" \
             -d "$(jq -n --arg tag "${{ steps.get_release.outputs.release_tag }}" \
                     --arg name "Build amnezia wg for all devices with openwrt ${{ steps.get_release.outputs.release_tag }}" \
