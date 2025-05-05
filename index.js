@@ -5,7 +5,7 @@ const core = require('@actions/core');
 const version = process.argv[2]; // Получение версии OpenWRT из аргумента командной строки
 
 const SNAPSHOT_TARGETS_TO_BUILD = ['mediatek', 'ramips', 'x86', 'armsr'];
-const SNAPSHOT_SUBTARGETS_TO_BUILD = ['filogic', 'mt7622', 'mt7623', 'mt7629', 'mt7620', 'mt7621', 'mt76x8', '64', 'generic', 'armv8'];
+const SNAPSHOT_SUBTARGETS_TO_BUILD = ['filogic', 'mt7622', 'mt7623', 'mt7629', 'mt7620', 'mt7621', 'mt76x8', '64', 'generic', 'armv8', 'mt7988a'];
 
 if (!version) {
   core.setFailed('Version argument is required');
@@ -39,6 +39,11 @@ async function getTargets() {
 async function getSubtargets(target) {
   const $ = await fetchHTML(`${url}${target}/`);
   const subtargets = [];
+
+  if (target === 'mediatek') {
+    return ['mt7988a'];
+  }
+  
   $('table tr td.n a').each((index, element) => {
     const name = $(element).attr('href');
     if (name && name.endsWith('/')) {
