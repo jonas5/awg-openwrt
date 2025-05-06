@@ -80,7 +80,7 @@ jobs:
 
           # Setup config with AWG and dependencies
           if [[ "${{ matrix.build_env.target }}" == "mediatek" && "${{ matrix.build_env.subtarget }}" == "filogic" ]]; then
-            wget https://raw.githubusercontent.com/jonas5/awg-openwrt/refs/heads/master/config.buildinfo -O .config"
+            wget https://raw.githubusercontent.com/jonas5/awg-openwrt/refs/heads/master/config.buildinfo -O .config
           else
             wget https://downloads.openwrt.org/releases/${{ matrix.build_env.tag }}/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/config.buildinfo -O .config
           fi
