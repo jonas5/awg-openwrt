@@ -106,7 +106,7 @@ jobs:
         
 
           make defconfig download
-          make -j1 kernel
+          make -j1 world
           echo "    > make tools/install"
           make tools/install -i -j `nproc`
 
