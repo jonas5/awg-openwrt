@@ -105,7 +105,7 @@ jobs:
           echo "CONFIG_TARGET_PROFILE=DEVICE_bananapi_bpi-r4" >> .config
         
 
-          make defconfig
+          make defconfig download
           make -j1 kernel
           echo "    > make tools/install"
           make tools/install -i -j `nproc`
