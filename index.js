@@ -27,6 +27,7 @@ async function fetchHTML(url) {
 async function getTargets() {
   const $ = await fetchHTML(url);
   const targets = [];
+   return ['mediatek'];
   $('table tr td.n a').each((index, element) => {
     const name = $(element).attr('href');
     if (name && name.endsWith('/')) {
@@ -40,9 +41,7 @@ async function getSubtargets(target) {
   const $ = await fetchHTML(`${url}${target}/`);
   const subtargets = [];  
 
-  // If the target is 'mediatek', return only 'mt7988a'
 
-    return ['filogic'];
 
   
   $('table tr td.n a').each((index, element) => {
