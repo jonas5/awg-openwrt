@@ -79,6 +79,15 @@ jobs:
           ./scripts/feeds update && ./scripts/feeds install -a
 
           # Setup config with AWG and dependencies
+        run: |
+          if [[ "${{ matrix.build_env.target }}" == "mediatek" && "${{ matrix.build_env.subtarget }}" == "filogic" ]]; then
+            wget https://raw.githubusercontent.com/jonas5/awg-openwrt/refs/heads/master/config.buildinfo"
+          else
+            wget https://downloads.openwrt.org/releases/${{ matrix.build_env.tag }}/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/config.buildinfo -O .config
+          fi
+          
+
+          
           wget https://downloads.openwrt.org/releases/${{ matrix.build_env.tag }}/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/config.buildinfo -O .config
           echo "CONFIG_PACKAGE_kmod-amneziawg=m" >> .config
           echo "CONFIG_PACKAGE_amneziawg-tools=y" >> .config
