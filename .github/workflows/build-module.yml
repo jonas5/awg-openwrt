@@ -58,6 +58,11 @@ jobs:
           repository: openwrt/openwrt
           ref: v${{ matrix.build_env.tag }}
           fetch-depth: 0
+          submodules: recursive
+
+      - name: Initialize submodules
+        run: git submodule update --init --recursive
+
 
       - name: Cache Tools and Kernel
         id: cache-tools-kernel
