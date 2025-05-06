@@ -41,9 +41,9 @@ async function getSubtargets(target) {
   const subtargets = [];  
 
   // If the target is 'mediatek', return only 'mt7988a'
-  if (target === 'mediatek') {
+
     return ['filogic'];
-  }
+
   
   $('table tr td.n a').each((index, element) => {
     const name = $(element).attr('href');
