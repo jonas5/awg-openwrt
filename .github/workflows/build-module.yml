@@ -57,11 +57,11 @@ jobs:
         with:
           repository: openwrt/openwrt
           ref: v${{ matrix.build_env.tag }}
-          fetch-depth: 0
-          submodules: recursive
+        #  fetch-depth: 0
+        #  submodules: recursive
 
-      - name: Initialize submodules
-        run: git submodule update --init --recursive
+      # - name: Initialize submodules
+      #  run: git submodule update --init --recursive
 
 
       - name: Cache Tools and Kernel
@@ -105,8 +105,8 @@ jobs:
           echo "CONFIG_TARGET_PROFILE=DEVICE_bananapi_bpi-r4" >> .config
         
 
-          make defconfig download
-          make -j1 world
+          make defconfig
+          
           echo "    > make tools/install"
           make tools/install -i -j `nproc`
 
@@ -123,6 +123,8 @@ jobs:
 
           VERMAGIC=`cat ./build_dir/target-*/linux-*/linux-*/.vermagic`
           VERMAGIC_EXPECTED=${{ matrix.build_env.vermagic }}
+
+          echo " > Current VERMAGIC: $VERMAGIC | EXPECTED: $VERMAGIC_EXPECTED "
 
           if [ "$VERMAGIC" != "$VERMAGIC_EXPECTED" ]; then
             echo Vermagic mismatch: $VERMAGIC, expected $VERMAGIC_EXPECTED
