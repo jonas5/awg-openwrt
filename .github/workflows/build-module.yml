@@ -165,12 +165,12 @@ jobs:
           cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/packages/kmod-amneziawg_*.ipk awgrelease/kmod-amneziawg_${postfix}.ipk
 
           
-          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-${postfix}-*sdcard.img.gz awgrelease/
-          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-${postfix}-*squashfs-sysupgrade.itb awgrelease/
-          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-${postfix}-*emmc-preloader.bin awgrelease/
-          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-${postfix}-*emmc-bl31-uboot.fip awgrelease/
-          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-${postfix}-*initramfs-recovery.itb awgrelease/
-          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-${postfix}-*snand-preloader.bin awgrelease/
+          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-*sdcard.img.gz awgrelease/
+          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-*squashfs-sysupgrade.itb awgrelease/
+          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-*emmc-preloader.bin awgrelease/
+          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-*emmc-bl31-uboot.fip awgrelease/
+          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-*initramfs-recovery.itb awgrelease/
+          cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-*snand-preloader.bin awgrelease/
 
           
           
