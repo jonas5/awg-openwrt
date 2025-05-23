@@ -164,6 +164,10 @@ jobs:
           cp bin/packages/${{ matrix.build_env.pkgarch }}/awgopenwrt/luci-app-amneziawg_*.ipk awgrelease/luci-app-amneziawg_${postfix}.ipk
           cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/packages/kmod-amneziawg_*.ipk awgrelease/kmod-amneziawg_${postfix}.ipk
 
+          ls -all  bin/targets/
+          ls -all  bin/targets/${{ matrix.build_env.target}}/
+          ls -all  bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/
+
           
           cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-*sdcard.img.gz awgrelease/
           cp bin/targets/${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}}/openwrt-*squashfs-sysupgrade.itb awgrelease/
